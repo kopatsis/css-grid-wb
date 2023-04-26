@@ -83,6 +83,7 @@
       align-items: center;
       transition: 0.2s;
       transform: translateY(100%);
+    
     }
 
     .item__overlay button {
@@ -194,6 +195,14 @@
     items.forEach(item => item.addEventListener('click', handleClick));
 
     overlayClose.addEventListener('click', close);
+
+    window.addEventListener('keyup', function esc(e){
+      if (e.keyCode == 27) overlay.classList.remove('open');
+    });
+
+    window.addEventListener('click', function escape(e){
+      if (e.target.classList.contains('overlay') && e.target.classList.contains('open')) overlay.classList.remove('open');
+    });
 
   </script>
 </body>
